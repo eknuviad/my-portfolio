@@ -1,92 +1,137 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
-    </div>
-    <div>
-      <p>Hi there, I'm Edem Koshi Nuviadenu</p>
-      <!-- insert linkedin and github links, and image -->
-      <p>PM | Developer | Engineer</p>
-    </div>
-    <div>
-      <h1>About Me</h1>
-      <!-- insert pictures of Ghana, McGill, circuit board, software dev -->
-      <p>I am Edem (/ɛd-ɛm/) Koshi Nuviadenu. I am currently a 3rd year Computer Engineering 
-        student in McGill University,Canada but my home country is Ghana. I am passionate about 
-        technology and love learning new skills,especially if it means I get to build impactful 
-        products. I like to see the opportunity in every challenge because I am a strong believer 
-        in focusing on goals and not obstacles.
-      </p>
-      <p>
-        My passion for tech really came to light from my love and desire to understand and build 
-        circuit boards. My interest in software dev grew from my initial implementation of art
-        designs using turtle command in python prior to me starting university but I never really 
-        understood the complexity of what I did until my journey to 
-        Canada to study Electrical Engineering.
-      </p>
-      <p>
-        I began my university studies at McGill University in 2017 and after taking my first 
-        software development class in both Java and C, I was immediately hooked and enjoyed 
-        the thrill and opportunity of seeing code that I implemented 
-        actually working.
-      </p>
-      <p>
-        Today, my passion for tech has become more of how I can harness and shape my skills 
-        in order to be able to take a product from idea to completion. My goal is to be able 
-        to contribute to my society through building impactful/meaningful products that 
-        positively impact my community.
-      </p>
-    </div>
-    <!-- My Involvement section -->
-    <div>
-      <h1> AWFE (A-Walk-For-Education)</h1>
-      <p>
-        One of my proudest moments has been organizing the walk for education in both 2018 
-        and 2019 as the Academic Excellence Chair of NSBE McGill.This walk is part of an 
-        international effort by NSBE to reach out to visible minority students who are 
-        passionate about education and have shown keen interest in the STEM field.
-      </p>
-      <p>
-        Over 20 volunteers walk with the kids within the Montreal area. During the walk, 
-        the volunteers and community centers get an opportunity to present and explain 
-        educational services available for the students. The walk culminates at Les Scientifines 
-        where McGill clubs and design teams exhibit their projects alongside those of the 
-        different student groups from the community centres. 
-      </p>
-      <p>
-        The students all get an opportunity to solve simple hands-on challenges and for both 
-        years 2018 and 2019 I was able to introduce the students to Scratch programming 
-        software which they always love. Through this event the team and I have been 
-        able to speak to and encourage the students to strive for excellence in school.
-      </p>  
-    </div>
-    <!-- My projects section -->
-    <div>
-      <h1> Projects</h1>
-      <div>
-        <h2>Block Breaker</h2>
-        <p>
-          Built a scalable block breaker game using the Model View Controller (MVC) pattern 
-          with features to design, play, and compete in a game for entry in the hall of fame. 
-        </p>
-        <h2>E-Patient</h2>
-        <p>
-          Built a Web App (E-patient) to improve both staff and patient experience in hearing 
-          clinics. This app involved a client/patient facing side and an admin and patient 
-          hearing health care provider side.
-        </p>
-      </div>
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <h1>My Portfolio</h1>
+  <div>
+    <p>Hi there, I'm Edem Koshi Nuviadenu</p>
+    <!-- Add font awesome icons -->
+    <ul>
+      <li><a href="https://linkedin.com/in/edem-koshi-nuviadenu-09375a12b" target="_blank" class="fa fa-linkedin"
+          aria-hidden="true"></a></li>
+      <li><a href="https://github.com/eknuviad" target="_blank" class="fa fa-github" aria-hidden="true"></a></li>
+    </ul>
+    <p>PM | Developer | Engineer</p>
+    <img src="images/Edem(1).jpg" height="200" width="300" />
   </div>
-  </body>
+  <div>
+    <h1>About Me</h1>
+    <!-- insert pictures of Ghana, McGill, circuit board, software dev -->
+    <ul>
+      <li><img src="images/GhanaFlag.png" height="150" width="250" /></li>
+      <li><img src="images/McGill University.png" height="150" width="250" /></li>
+      <li><img src="images/FPGA board.jpg" height="150" width="250" /></li>
+      <li><img src="images/software_dev.jpg" height="150" width="250" /></li>
+    </ul>
+    <p>I am Edem (/ɛd-ɛm/) Koshi Nuviadenu. I am currently a 3rd year Computer Engineering
+      student in McGill University, Canada but my home country is Ghana. I am passionate about
+      technology and love learning new skills, especially if it means I get to build impactful
+      products. I like to see the opportunity in every challenge because I am a strong believer
+      in focusing on goals and not obstacles.
+    </p>
+    <p>
+      My passion for tech really came to light from my love and desire to understand and build
+      circuit boards. My interest in software dev grew from my initial implementation of art
+      designs using turtle command in python prior to me starting university but I never really
+      understood the complexity of what I did until my journey to
+      Canada to study Electrical Engineering.
+    </p>
+    <p>
+      I began my university studies at McGill University in 2017. After taking my first
+      software development class in both Java and C, I was immediately hooked and enjoyed
+      the thrill and opportunity of seeing code that I implemented
+      actually working.
+    </p>
+    <p>
+      Today, my passion for tech has become more of how I can harness and shape my skills
+      in order to be able to take a product from idea to completion. My goal is to be able
+      to contribute to my society through building impactful/meaningful products that
+      positively impact my community.
+    </p>
+  </div>
+  <!-- My Involvement section -->
+  <div>
+    <h1> AWFE (A-Walk-For-Education)</h1>
+    <p>
+      One of my proudest moments has been organizing the walk for education in both 2018
+      and 2019 as the Academic Excellence Chair of NSBE McGill. This walk is part of an
+      international effort by NSBE to reach out to visible minority students who are
+      passionate about education and have shown keen interest in the STEM field.
+    </p>
+    <p>
+      Over 20 volunteers walk with the kids within the Montreal area. During the walk,
+      the volunteers and community centers get an opportunity to present and explain
+      educational services available for the students. The walk culminates at Les Scientifines
+      where McGill clubs and design teams exhibit their projects alongside those of the
+      different student groups from the community centres.
+    </p>
+    <p>
+      The students all get an opportunity to solve simple hands-on challenges and for both
+      years 2018 and 2019 I was able to introduce the students to Scratch programming
+      software which they always love. Through this event the team and I have been
+      able to speak to and encourage the students to strive for excellence in school.
+    </p>
+    <ul>
+      <!-- awfe 2019 -->
+      <li><img src="images/awfe2019(1).JPG" height="150" width="250" /></li>
+      <li><img src="images/awfe2019(2).JPG" height="150" width="250" /></li>
+      <li><img src="images/awfe2019(3).JPG" height="150" width="250" /></li>
+      <li><img src="images/awfe2019(5).jpg" height="150" width="250" /></li>
+      <!-- awfe 2018 -->
+      <li><img src="images/awfe2018(1).JPG" height="150" width="250" /></li>
+      <li><img src="images/awfe2018(2).JPG" height="150" width="250" /></li>
+      <li><img src="images/awfe2018(3).JPG" height="150" width="250" /></li>
+      <li><img src="images/awfe2018(4).jpg" height="150" width="250" /></li>
+    </ul>
+  </div>
+  <!-- My projects section -->
+  <div>
+    <h1> Projects</h1>
+    <div>
+      <h2>Block Breaker</h2>
+      <p>
+        Built a scalable block breaker game using the Model View Controller (MVC) pattern
+        with features to design, play, and compete in a game for entry in the hall of fame.
+      <ul>
+        <!-- block223 images -->
+        <li><img src="images/block223(1).png" height="150" width="250" /></li>
+        <li><img src="images/block223(2).png" height="150" width="250" /></li>
+        <li><img src="images/block223(3).png" height="400" width="250" /></li>
+        <li><img src="images/block223(4).png" height="400" width="250" /></li>
+        <!-- block 223 video -->
+        <video controls muted width="500" height="400" loop autoplay>
+          <source src="videos/2020-06-02 22-29-18.mp4" type="video/mp4">
+        </video>
+        <video controls muted width="500" height="400" loop autoplay>
+          <source src="videos/2020-06-02 22-47-37.mp4" type="video/mp4">
+        </video>
+      </ul>
+
+      </p>
+      <h2>E-Patient</h2>
+      <p>
+        Built a Web App (E-patient) to improve both staff and patient experience in hearing
+        clinics. This app involved a client/patient facing side and an admin and patient
+        hearing health care provider side.
+      </p>
+      <video controls muted width="500" height="400" loop autoplay>
+        <source src="videos/BRH Case History Form - Google Chrome 2020-06-02 21-59-00.mp4" type="video/mp4">
+      </video>
+      <video controls muted width="500" height="400" loop autoplay>
+        <source src="videos/Admin-BRH Case History - Google Chrome 2020-06-03 11-32-14.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</body>
+
 </html>
