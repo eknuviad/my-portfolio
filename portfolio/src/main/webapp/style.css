@@ -104,3 +104,22 @@ nav a:hover::before {
 }
 
 /* TODO: add hover effect for linkedin and github */
+
+#involvement_div h1{
+  text-align:center;
+}
+#involvement_div ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#involvement_div li {
+  display: inline-block;
+  margin-left: 100px;
+  margin-right: 0px;
+}
+#involvement_div p{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
