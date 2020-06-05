@@ -143,3 +143,25 @@ nav a:hover::before {
   margin-right: 40px;
 }
 
+/* Projects page CSS */
+#project_div h2{
+  text-align:center;
+}
+#project_div ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#project_div li {
+  display: inline-block;
+  margin-left: 100px;
+  margin-right: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+}
+#project_div p{
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-bottom: 0px;
+}
