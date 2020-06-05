@@ -105,6 +105,26 @@ nav a:hover::before {
 
 /* TODO: add hover effect for linkedin and github */
 
+/* About me page CSS */
+#aboutMe_div h1{
+  text-align:center;
+}
+#aboutMe_div ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#aboutMe_div li {
+  display: inline-block;
+  margin-left: 40px;
+  margin-right: 0px;
+}
+#aboutMe_div p{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+/* Involement page CSS */
 #involvement_div h1{
   text-align:center;
 }
