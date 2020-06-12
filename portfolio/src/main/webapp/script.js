@@ -30,7 +30,7 @@ function addRandomGreeting() {
 
 // greeting function from server fetch tutorial
 function getGreeting() {
-  fetch('/data').then(response => response.text()).then((message) => {
-    document.getElementById('greeting-container').innerText = message;
+  fetch('/data').then(response => response.json()).then((messages) => {
+      document.getElementById('greeting-container').innerText = messages;
   });
 }
