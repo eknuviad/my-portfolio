@@ -37,10 +37,8 @@ function getGreeting() {
 
 function loadComments() {
   fetch('/list-comments').then(response => response.json()).then((comments) => {
-    // const taskListElement = document.getElementById('task-list');
     comments.forEach((comment) => {
         console.log(comment);
-    //   taskListElement.appendChild(createTaskElement(task));
     })
   });
 }
