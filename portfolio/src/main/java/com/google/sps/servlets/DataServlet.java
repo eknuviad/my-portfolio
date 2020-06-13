@@ -26,8 +26,7 @@ import com.google.gson.Gson;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-    private ArrayList<String> messages;
-
+    
     public ArrayList<String> getMessages(){
         ArrayList<String> messages = new ArrayList<String>();
         messages.add ("Hi");
@@ -38,12 +37,8 @@ public class DataServlet extends HttpServlet {
     
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    //Get messages
     ArrayList<String> messages = getMessages();
-    // Convert the messages to JSON
     String json = convertToJsonUsingGson(messages);
-
-    // Send the JSON as the response
     response.setContentType("application/json;");
     response.getWriter().println(json);
   }
