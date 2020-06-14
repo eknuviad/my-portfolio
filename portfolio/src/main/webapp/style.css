@@ -186,8 +186,9 @@ nav a:hover::before {
 }
 
 #comment-list li span:nth-child(1){
-  width: 400px;
+  width: 300px;
 }
+
 
 /* Modal CSS */
 

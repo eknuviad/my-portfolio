@@ -49,8 +49,21 @@ function createCommentElement(comment) {
   const messageElement = document.createElement('span');
   messageElement.innerText = comment.message;
 
+  const breakElement = document.createElement('br');
+
+  const deleteButtonElement = document.createElement('button');
+  deleteButtonElement.innerText = 'Delete';
+  deleteButtonElement.addEventListener('click', () => {
+    deleteComment(comment);
+
+    // Remove the task from the DOM.
+    commentElement.remove();
+  });
+
   commentElement.appendChild(nameElement);
   commentElement.appendChild(messageElement);
+  commentElement.appendChild(breakElement);
+  commentElement.appendChild(deleteButtonElement);
   return commentElement;
 }
 
@@ -67,6 +80,14 @@ function submitComment(){
     });
     return false;
 }
+
+/** Tells the server to delete the task. */
+function deleteComment(comment) {
+  const params = new URLSearchParams();
+  params.append('id', comment.id);
+  fetch('/delete-comment', {method: 'POST', body: params});
+}
+
 // Get DOM elements
 var modal = document.getElementById('my-modal');
 var modalBtn = document.getElementById('modal-btn');
