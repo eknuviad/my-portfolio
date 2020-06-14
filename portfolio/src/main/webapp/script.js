@@ -67,4 +67,29 @@ function submitComment(){
     });
     return false;
 }
+// Get DOM elements
+var modal = document.getElementById('my-modal');
+var modalBtn = document.getElementById('modal-btn');
+var closeBtn = document.getElementsByClassName('closeBtn')[0];
 
+// Events
+modalBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
+
+// Open
+function openModal() {
+  modal.style.display = 'block';
+}
+
+// Close
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Close If Outside Click
+function outsideClick(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+}
