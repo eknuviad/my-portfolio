@@ -34,3 +34,24 @@ function getGreeting() {
       document.getElementById('greeting-container').innerText = messages;
   });
 }
+
+function loadComments() {
+  fetch('/list-comments').then(response => response.json()).then((comments) => {
+    comments.forEach((comment) => {
+        console.log(comment);
+    })
+  });
+}
+
+function submitComment(){
+    var data = { };
+    data.name = document.getElementById("name").value;
+    data.message = document.getElementById("message").value;
+    $.post("/new-comment", data, function() { 
+        loadComments();
+        $('#name').val('');
+        $('#message').val('');
+        // TODO add comment sent success message
+    });
+    return false;
+}
