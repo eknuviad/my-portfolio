@@ -165,3 +165,28 @@ nav a:hover::before {
   margin-right: 40px;
   padding-bottom: 0px;
 }
+
+
+#comment-list{
+  position: relative;
+  width: 450px;
+  margin: 100px auto 0;
+  padding: 10px;
+  box-sizing: border-box
+}
+
+
+#comment-list li{
+  display: flex;
+  background: rgba(253, 230, 230, 0.986);
+  padding: 10px 20px;
+  color: black;
+   margin: 5px 0;
+  transition: .5s;
+}
+
+#comment-list li span:nth-child(1){
+  width: 400px;
+}
+
+

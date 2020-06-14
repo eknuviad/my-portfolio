@@ -44,12 +44,18 @@
    <button onclick="getGreeting()">Greeting!</button>
       <div id="greeting-container"></div>
 
-   <div>  
+
+  <div id="comment_div">  
     <input type="text" name="name" id="name" />
-      <input type="text" name="message" id="message" />
-      <br/>
-      <button onclick="submitComment()">Submit</button>
-    </div>
+    <input type="text" name="message" id="message" />
+    <button onclick="submitComment()">Submit</button>
+    <ul id="comment-list">
+        <li> 
+            <span>From Edem:</span>
+            <span>Feel free to leave a comment !!</span>
+        </li>
+    </ul>
+  </div>
   
 </body>
 

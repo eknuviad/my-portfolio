@@ -28,30 +28,43 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-// greeting function from server fetch tutorial
-function getGreeting() {
-  fetch('/data').then(response => response.json()).then((messages) => {
-      document.getElementById('greeting-container').innerText = messages;
-  });
-}
 
 function loadComments() {
   fetch('/list-comments').then(response => response.json()).then((comments) => {
+     const commentListElement = document.getElementById('comment-list');
     comments.forEach((comment) => {
-        console.log(comment);
+      commentListElement.appendChild(createCommentElement(comment));
     })
   });
 }
+
+/** Creates an element that represents a comment */
+function createCommentElement(comment) {
+  const commentElement = document.createElement('li');
+  commentElement.className = 'comment';
+
+  const nameElement = document.createElement('span');
+  nameElement.innerText = "From" + " " + comment.name + ":";
+
+  const messageElement = document.createElement('span');
+  messageElement.innerText = comment.message;
+
+  commentElement.appendChild(nameElement);
+  commentElement.appendChild(messageElement);
+  return commentElement;
+}
+
 
 function submitComment(){
     var data = { };
     data.name = document.getElementById("name").value;
     data.message = document.getElementById("message").value;
     $.post("/new-comment", data, function() { 
-        loadComments();
+        document.getElementById('comment-list').prepend(createCommentElement(data));
         $('#name').val('');
         $('#message').val('');
         // TODO add comment sent success message
     });
     return false;
 }
+

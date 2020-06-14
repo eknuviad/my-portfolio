@@ -28,7 +28,7 @@ public class ListCommentsServlet extends HttpServlet {
     PreparedQuery results = datastore.prepare(query);
 
     List<Comment> comments = new ArrayList<>();
-        for (Entity entity : results.asIterable()) {
+    for (Entity entity : results.asIterable()) {
         long id = entity.getKey().getId();
         String name = (String) entity.getProperty("name");
         String message = (String) entity.getProperty("message");
@@ -36,11 +36,11 @@ public class ListCommentsServlet extends HttpServlet {
 
         Comment comment = new Comment(id, name, message, timestamp);
         comments.add(comment);
-        }
+    }
 
-        Gson gson = new Gson();
+    Gson gson = new Gson();
 
-        response.setContentType("application/json;");
-        response.getWriter().println(gson.toJson(comments));
+    response.setContentType("application/json;");
+    response.getWriter().println(gson.toJson(comments));
     }
 }
