@@ -9,7 +9,6 @@
     rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
     crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="script.js"></script>
 </head>
 
 <body onload="loadComments()">
@@ -39,18 +38,36 @@
           aria-hidden="true"></a></li>
       <li><a href="https://github.com/eknuviad" target="_blank" class="fa fa-github" aria-hidden="true"></a></li>
     </ul>
+     <p>
+    <button id="modal-btn" class="button">Leave me a comment</button>
+    </p>
   </div>
-  <!-- Add button from fetch tutorial -->
-   <button onclick="getGreeting()">Greeting!</button>
-      <div id="greeting-container"></div>
-
-   <div>  
-    <input type="text" name="name" id="name" />
-      <input type="text" name="message" id="message" />
-      <br/>
-      <button onclick="submitComment()">Submit</button>
+ 
+ <!-- Modal to contain comments -->
+<div id="my-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="closeBtn">&times;</span>
+        <input type="text" name="name" id="name" placeholder="name" />
+        <input type="text" name="message" id="message" placeholder="Message" />
+        <button onclick="submitComment()">Send</button>
+      </div>
+      <div class="modal-body">
+        <div id="comment_div">  
+          <ul id="comment-list">
+           <li> 
+            <span>From Edem:</span>
+            <span>Feel free to leave a comment !!</span>
+            </li>
+          </ul>
+         </div>
+        </div>
+        <div class="modal-footer">
+        </div>
     </div>
-  
+  </div>
+
+<script src="script.js"></script>
 </body>
 
 </html>

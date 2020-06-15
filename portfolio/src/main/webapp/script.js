@@ -28,30 +28,89 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-// greeting function from server fetch tutorial
-function getGreeting() {
-  fetch('/data').then(response => response.json()).then((messages) => {
-      document.getElementById('greeting-container').innerText = messages;
-  });
-}
 
 function loadComments() {
   fetch('/list-comments').then(response => response.json()).then((comments) => {
+     const commentListElement = document.getElementById('comment-list');
     comments.forEach((comment) => {
-        console.log(comment);
+      commentListElement.appendChild(createCommentElement(comment));
     })
   });
 }
+
+/** Creates an element that represents a comment */
+function createCommentElement(comment) {
+  const commentElement = document.createElement('li');
+  commentElement.className = 'comment';
+
+  const nameElement = document.createElement('span');
+  nameElement.innerText = "From" + " " + comment.name + ":";
+
+  const messageElement = document.createElement('span');
+  messageElement.innerText = comment.message;
+
+  const breakElement = document.createElement('br');
+
+  const deleteButtonElement = document.createElement('button');
+  deleteButtonElement.innerText = 'Delete';
+  deleteButtonElement.addEventListener('click', () => {
+    deleteComment(comment);
+
+    // Remove the task from the DOM.
+    commentElement.remove();
+  });
+
+  commentElement.appendChild(nameElement);
+  commentElement.appendChild(messageElement);
+  commentElement.appendChild(breakElement);
+  commentElement.appendChild(deleteButtonElement);
+  return commentElement;
+}
+
 
 function submitComment(){
     var data = { };
     data.name = document.getElementById("name").value;
     data.message = document.getElementById("message").value;
     $.post("/new-comment", data, function() { 
-        loadComments();
+        document.getElementById('comment-list').prepend(createCommentElement(data));
         $('#name').val('');
         $('#message').val('');
         // TODO add comment sent success message
     });
     return false;
+}
+
+/** Tells the server to delete the task. */
+function deleteComment(comment) {
+  const params = new URLSearchParams();
+  params.append('id', comment.id);
+  fetch('/delete-comment', {method: 'POST', body: params});
+}
+
+// Get DOM elements
+var modal = document.getElementById('my-modal');
+var modalBtn = document.getElementById('modal-btn');
+var closeBtn = document.getElementsByClassName('closeBtn')[0];
+
+// Events
+modalBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+window.addEventListener('click', outsideClick);
+
+// Open
+function openModal() {
+  modal.style.display = 'block';
+}
+
+// Close
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Close If Outside Click
+function outsideClick(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
 }
