@@ -13,29 +13,28 @@
 // limitations under the License.
 
 // TODO load header via javascript function on all pages.
-/**
- * Adds a random greeting to the page.
- */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
-
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
-}
 
 
-function loadComments() {
-  fetch('/list-comments').then(response => response.json()).then((comments) => {
-     const commentListElement = document.getElementById('comment-list');
+var uploadUrl;
+
+// Load existing comments, images. Retrieve upload url
+function loadCommentsAndImages() {
+    fetch('/list-comments').then(response => response.json()).then((comments) => {
+    const commentListElement = document.getElementById('comment-list');
     comments.forEach((comment) => {
-      commentListElement.appendChild(createCommentElement(comment));
+        commentListElement.appendChild(createImageElement(comment));
+        commentListElement.appendChild(createCommentElement(comment));
     })
-  });
+    });
+    fetch('/blobstore-upload-url').then((response) => {
+        return response.text();
+        }) .then((imageUploadUrl) => {
+        const messageForm = document.getElementById('my-form');
+        console.log(imageUploadUrl);
+        messageForm.action = imageUploadUrl;
+        uploadUrl = imageUploadUrl;
+        messageForm.classList.remove('hidden');
+        });
 }
 
 /** Creates an element that represents a comment */
@@ -56,7 +55,7 @@ function createCommentElement(comment) {
   deleteButtonElement.addEventListener('click', () => {
     deleteComment(comment);
 
-    // Remove the task from the DOM.
+    // Remove the comment from the DOM.
     commentElement.remove();
   });
 
@@ -64,24 +63,52 @@ function createCommentElement(comment) {
   commentElement.appendChild(messageElement);
   commentElement.appendChild(breakElement);
   commentElement.appendChild(deleteButtonElement);
+   commentElement.appendChild(breakElement);
   return commentElement;
 }
 
+/** Creates an element that represents an Image */
+function createImageElement(response) {
+    const imageElement = document.createElement('li');
+    imageElement.className = 'comment';
+
+    const breakElement = document.createElement('br');
+    if(response.imageUrl){
+        var img = document.createElement('img');
+        img.src = response.imageUrl;
+        imageElement.appendChild(img);
+    }
+    imageElement.appendChild(breakElement);
+    return imageElement;
+}
 
 function submitComment(){
-    var data = { };
-    data.name = document.getElementById("name").value;
-    data.message = document.getElementById("message").value;
-    $.post("/new-comment", data, function() { 
-        document.getElementById('comment-list').prepend(createCommentElement(data));
-        $('#name').val('');
-        $('#message').val('');
-        // TODO add comment sent success message
+    var form = $('#my-form')[0];
+    var data = new FormData(form);
+    $.ajax({
+        type:"POST",
+        enctype: 'multipart/form-data',
+        url: uploadUrl,
+        data:data,
+        processData: false, //prevents jquery from converting data into query string
+        contentType: false,
+        cache: false,
+        timeout: 600000,
+        success: function (response) {
+            document.getElementById('comment-list').prepend(createImageElement(response));
+            document.getElementById('comment-list').prepend(createCommentElement(response));
+            console.log("SUCCESS : ", response);
+        },
+        error: function (e) {
+            $("#result").text(e.responseText);
+            console.log("ERROR : ", e);
+        }
     });
+
     return false;
 }
 
-/** Tells the server to delete the task. */
+/** Tells the server to delete the Comment. */
 function deleteComment(comment) {
   const params = new URLSearchParams();
   params.append('id', comment.id);
