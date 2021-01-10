@@ -48,7 +48,7 @@
         <version>2.2.0</version>
         <configuration>
           <!-- TODO: set project ID. -->
-          <deploy.projectId>enuviadenu-sps-summer20</deploy.projectId>
+          <deploy.projectId>edem-portfolio</deploy.projectId>
           <deploy.version>1</deploy.version>
         </configuration>
       </plugin>
